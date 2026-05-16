@@ -11,10 +11,12 @@ import (
 	"github.com/shirou/gopsutil/v3/disk"
 	"github.com/shirou/gopsutil/v3/host"
 	"github.com/shirou/gopsutil/v3/mem"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	gin.SetMode(gin.DebugMode)
+	godotenv.Load()
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	r.Use(func(c *gin.Context) {
