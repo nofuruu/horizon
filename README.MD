@@ -14,8 +14,14 @@
 
 - untuk melihat beban suhu dari desktop maka membaca file dari /sys/class/thermal
 
+---
+## Example
 
+### Cara Kerja Sistem
 ![Example](assets/example.png)
-
-
-
+---
+### Dashboard 
+![Example](assets/dashboard_example.png)
+---
+### Cpu Usage 
+![Example](assets/cpu_example.png)
