@@ -14,7 +14,7 @@
 - untuk melihat beban suhu dari desktop maka membaca file dari /sys/class/thermal
 
 
-![Example] (assets/example.png)
+![Example](assets/example.png)
 
 
 
