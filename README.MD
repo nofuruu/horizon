@@ -3,6 +3,7 @@
 
 > Sebuah program untuk menjalankan kode dari go untuk mengecek resource komputer
 
+* Note : program ini belum diuji/ditest apabila dijalankan di windows
 ---
 
 - Program dari go akan dicompile menjadi sebuah program/binary program yang akan dijalankan di mesin linux (dapat berjalan di background sebagai service). Karena program berjalan langsung pada sistem operasi linux maka program memiliki akses ke resource komputer(file program)
