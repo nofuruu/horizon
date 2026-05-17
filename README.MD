@@ -1,9 +1,8 @@
 # Horizon 
-## Monitoring dashboard untuk sistem linux
-
 Real-time Linux system monitoring dashboard dengan GO backend dan svelte
----
 
+
+----
 ## Requirements 
 
 **Backend**
