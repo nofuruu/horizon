@@ -85,6 +85,6 @@ Then open your browser at `http://localhost:5173`
 | Section | |
 |---|---|
 | **Dashboard** | ![Dashboard](assets/dashboard.png) |
-| **CPU Usage** | ![CPU Usage](assets/cpu_example.png) |
+| **CPU Usage** | ![CPU Usage](assets/cpu_usage.png) |
 | **System Information** | ![System Info](assets/example.png) |
 | **Process Management** | ![Process Termination](assets/terminate.png) |
