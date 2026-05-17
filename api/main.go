@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"runtime"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -77,6 +78,47 @@ func getSystemInfo(c *gin.Context) {
 		"uptime":           info.Uptime,
 		"boot_time":        info.BootTime,
 	})
+}
+
+func getOSIcon(platform, family string) string {
+	platform = strings.ToLower(platform)
+	family = strings.ToLower(family)
+
+	if strings.Contains(platform, "fedora") {
+		return "fedora"
+	}
+	if strings.Contains(platform, "ubuntu") {
+		return "ubuntu"
+	}
+	if strings.Contains(platform, "debian") {
+		return "debian"
+	}
+	if strings.Contains(platform, "arch") {
+		return "arc"
+	}
+	if strings.Contains(platform, "manjaro") {
+		return "manjaro"
+	}
+	if strings.Contains(platform, "centos") || strings.Contains(platform, "rhel") {
+		return "redhat"
+	}
+	if strings.Contains(platform, "opensuse") || strings.Contains(platform, "suse") {
+		return "suse"
+	}
+	if strings.Contains(platform, "mint") {
+		return "mint"
+	}
+	if strings.Contains(family, "debian") {
+		return "debian"
+	}
+	if strings.Contains(family, "rhel") || strings.Contains(family, "fedora") {
+		return "fedora"
+	}
+	if strings.Contains(family, "arch") {
+		return "arch"
+	}
+
+	return "linux"
 }
 
 func getCPUMetrics(c *gin.Context) {
