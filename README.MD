@@ -19,11 +19,11 @@ Real-time Linux system monitoring dashboard dengan GO backend dan svelte
 ---
 ## Get Started
 
-### 1. Go Setup 
-> Make sure you're already installed go minimum 1.25 or above
+### 1. Backend Setup (Go)
+> Make sure Go 1.25+ is installed
 
 ```bash
-cd backend
+cd api
 go mod init horizon
 go get -u github.com/gin-gonic/gin
 go get -u github.com/shirou/gopsutil/v3
@@ -31,19 +31,18 @@ go get -u github.com/shirou/gopsutil/v3
 # Run the server
 go run main.go
 ```
-The API will run in `http://localhost:8080`
+API will be available at `http://localhost:8080`
 
-### 2. Frontend Installation (Svelte)
+### 2. Frontend Setup (Svelte)
 
 ```bash
-cd frontend 
+cd ui
 pnpm install 
 
-#Develompent mode
-pnpm dev
+# Development mode
+pnpm run dev
 ```
-
-Frontend views will on URL `http://localhost:5173`
+Frontend will be available at `http://localhost:5173`
 
 ## API Endpoints
 
@@ -56,44 +55,36 @@ Frontend views will on URL `http://localhost:5173`
 
 ## Development
 
-Backend dan frontend harus running bersamaan:
+Run backend and frontend simultaneously:
 
-1. Terminal 1: `cd backend && go run main.go`
-2. Terminal 2: `cd frontend && pnpm dev`
-3. Buka browser: `http://localhost:5173`
+```bash
+# Terminal 1: Start the backend
+cd api && go run main.go
+
+# Terminal 2: Start the frontend
+cd ui && pnpm dev
+```
+
+Then open your browser at `http://localhost:5173`
 
 ----
 
 ## Features
 
-✅ Real-time CPU monitoring
-✅ Real-time Memory monitoring
-✅ Real-time Disk monitoring
-✅ System information display
-✅ Historical charts (40 seconds)
-✅ Auto-refresh setiap 2 detik
-✅ Dark mode support
-
-* Note : program ini belum diuji/ditest apabila dijalankan di windows
+- Real-time CPU monitoring
+- Real-time Memory monitoring
+- Real-time Disk monitoring
+- System information display
+- Historical charts (40 seconds data)
+- Auto-refresh every 2 seconds
+- Dark mode support
 ---
 
-- Program dari go akan dicompile menjadi sebuah program/binary program yang akan dijalankan di mesin linux (dapat berjalan di background sebagai service). Karena program berjalan langsung pada sistem operasi linux maka program memiliki akses ke resource komputer(file program)
+## Screenshots
 
-- untuk melihat penggunaan RAM maka program akan mengakses resource komputer via file /proc/meminfo pada sistem linux
-
-- untuk melihat beban CPU via /proc/stat
-
-- untuk melihat beban suhu dari desktop maka membaca file dari /sys/class/thermal
-
----
-## Example
-
-### Cara Kerja Sistem
-![Example](assets/example.png)
----
-### Dashboard 
-![Example](assets/dashboard_example.png)
----
-### Cpu Usage 
-![Example](assets/cpu_example.png)
-
+| Section | |
+|---|---|
+| **Dashboard** | ![Dashboard](assets/dashboard.png) |
+| **CPU Usage** | ![CPU Usage](assets/cpu_example.png) |
+| **System Information** | ![System Info](assets/example.png) |
+| **Process Management** | ![Process Termination](assets/terminate.png) |
