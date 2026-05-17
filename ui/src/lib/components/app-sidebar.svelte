@@ -1,5 +1,6 @@
 <script lang="ts">
 	import LayoutDashboardIcon from "@lucide/svelte/icons/layout-dashboard";
+import ActivityIcon from "@lucide/svelte/icons/activity";
 	import UsersIcon from "@lucide/svelte/icons/users";
 	import SettingsIcon from "@lucide/svelte/icons/settings";
 	import BarChart3Icon from "@lucide/svelte/icons/bar-chart-3";
@@ -62,6 +63,7 @@
 			label: "Monitoring",
 			items: [
 				{ title: "Dashboard", url: "/", icon: LayoutDashboardIcon },
+				{ title: "Processes", url: "/processes", icon: ActivityIcon },
 			],
 		},
 	]);
