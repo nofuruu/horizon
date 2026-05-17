@@ -12,6 +12,9 @@
 	import HardDriveIcon from "@lucide/svelte/icons/hard-drive";
 	import ServerIcon from "@lucide/svelte/icons/server";
 	import ActivityIcon from "@lucide/svelte/icons/activity";
+	import MonitorIcon from "@lucide/svelte/icons/monitor";
+	import TerminalIcon from "@lucide/svelte/icons/terminal";
+	import ClockIcon from "@lucide/svelte/icons/clock";
 	import { onMount, onDestroy } from 'svelte';
 
 	// --- State ---
@@ -146,10 +149,31 @@
 				return 'text-green-600 dark:text-green-400';
 		}
 	}
+
+	// OS Icon Colors
+	const osIconColors: Record<string, string> = {
+		fedora: 'text-blue-600 dark:text-blue-400',
+		ubuntu: 'text-orange-600 dark:text-orange-400',
+		debian: 'text-red-700 dark:text-red-500',
+		arch: 'text-cyan-600 dark:text-cyan-400',
+		manjaro: 'text-green-600 dark:text-green-400',
+		mint: 'text-green-700 dark:text-green-500',
+		redhat: 'text-red-600 dark:text-red-400',
+		suse: 'text-green-600 dark:text-green-400',
+		elementary: 'text-blue-500 dark:text-blue-400',
+		pop: 'text-teal-600 dark:text-teal-400',
+		kali: 'text-blue-700 dark:text-blue-500',
+		linux: 'text-gray-700 dark:text-gray-300',
+	};
+
+	function getOSIconColor(icon: string): string {
+		return osIconColors[icon] || osIconColors.linux;
+	}
+
 </script>
 
 <svelte:head>
-	<title>Horizon - Linux System Monitoring</title>
+	<title>Horizon - System Monitoring</title>
 </svelte:head>
 
 <div class="space-y-6">
@@ -176,29 +200,51 @@
 
 	<!-- Row 1: System Info -->
 	{#if systemInfo}
-		<Card.Root>
+		<Card.Root class="border-2">
 			<Card.Header>
 				<Card.Title class="flex items-center gap-2">
 					<ServerIcon class="size-5" />
 					System Information
 				</Card.Title>
 			</Card.Header>
-			<Card.Content class="grid gap-4 md:grid-cols-4">
-				<div>
-					<p class="text-sm text-muted-foreground">Hostname</p>
-					<p class="text-lg font-semibold">{systemInfo.hostname}</p>
+			<Card.Content class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+				<div class="flex items-start gap-3">
+					<div class={`mt-1 ${getOSIconColor(systemInfo.os_icon)}`}>
+						<MonitorIcon class="size-8" strokeWidth={1.5} />
+					</div>
+					<div>
+						<p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Hostname</p>
+						<p class="text-lg font-bold mt-0.5">{systemInfo.hostname}</p>
+					</div>
 				</div>
-				<div>
-					<p class="text-sm text-muted-foreground">OS</p>
-					<p class="text-lg font-semibold">{systemInfo.platform} {systemInfo.platform_version}</p>
+				<div class="flex items-start gap-3">
+					<div class="text-primary mt-1">
+						<ServerIcon class="size-8" strokeWidth={1.5} />
+					</div>
+					<div>
+						<p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Operating System</p>
+						<p class="text-lg font-bold mt-0.5">{systemInfo.platform}</p>
+						<p class="text-xs text-muted-foreground">{systemInfo.platform_version}</p>
+					</div>
 				</div>
-				<div>
-					<p class="text-sm text-muted-foreground">Kernel</p>
-					<p class="text-lg font-semibold">{systemInfo.kernel_version}</p>
+				<div class="flex items-start gap-3">
+					<div class="text-purple-600 dark:text-purple-400 mt-1">
+						<TerminalIcon class="size-8" strokeWidth={1.5} />
+					</div>
+					<div>
+						<p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Kernel</p>
+						<p class="text-lg font-bold mt-0.5">{systemInfo.kernel_version}</p>
+						<p class="text-xs text-muted-foreground">{systemInfo.kernel_arch}</p>
+					</div>
 				</div>
-				<div>
-					<p class="text-sm text-muted-foreground">Uptime</p>
-					<p class="text-lg font-semibold">{formatUptime(systemInfo.uptime)}</p>
+				<div class="flex items-start gap-3">
+					<div class="text-green-600 dark:text-green-400 mt-1">
+						<ClockIcon class="size-8" strokeWidth={1.5} />
+					</div>
+					<div>
+						<p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Uptime</p>
+						<p class="text-lg font-bold mt-0.5">{formatUptime(systemInfo.uptime)}</p>
+					</div>
 				</div>
 			</Card.Content>
 		</Card.Root>

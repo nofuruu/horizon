@@ -1,13 +1,19 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
-import type { Session } from "$lib/server/db/schema.js";
-import type { SessionUser } from "$lib/server/auth.js";
+
+type User = {
+	id: string;
+	name: string;
+	email: string;
+	username: string;
+	role: string;
+};
 
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			user: SessionUser | null;
-			session: Session | null;
+			user: User | null;
+			session: any | null;
 		}
 		// interface PageData {}
 		// interface PageState {}

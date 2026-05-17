@@ -1,28 +1,14 @@
-import { db } from "$lib/server/db/index.js";
-import { pages } from "$lib/server/db/schema.js";
-import { eq } from "drizzle-orm";
 import type { RequestHandler } from "./$types.js";
 
-const SITE_URL = "https://svelteforge-admin.dev";
+const SITE_URL = "https://Horizon.local";
 
-const staticRoutes = ["/login", "/register", "/pricing"];
+const staticRoutes = ["/", "/processes"];
 
 export const GET: RequestHandler = async () => {
-	const publishedPages = await db
-		.select({ slug: pages.slug, updatedAt: pages.updatedAt })
-		.from(pages)
-		.where(eq(pages.status, "published"));
-
 	const urls = [
 		...staticRoutes.map((path) => ({
 			loc: `${SITE_URL}${path}`,
 			lastmod: new Date().toISOString().split("T")[0],
-		})),
-		...publishedPages.map((page) => ({
-			loc: `${SITE_URL}/content/${page.slug}`,
-			lastmod: page.updatedAt
-				? new Date(page.updatedAt).toISOString().split("T")[0]
-				: new Date().toISOString().split("T")[0],
 		})),
 	];
 

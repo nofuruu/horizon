@@ -63,9 +63,7 @@
 			</Card.Description>
 		</Card.Header>
 		<Card.Content class="flex justify-center gap-3 pt-2">
-			{#if page.status === 401}
-				<Button href="/login">Sign In</Button>
-			{:else if page.status === 503}
+			{#if page.status === 503}
 				<Button onclick={() => location.reload()}>Refresh</Button>
 			{:else}
 				<Button variant="outline" onclick={() => history.back()}>Go Back</Button>
