@@ -149,7 +149,7 @@
 </script>
 
 <svelte:head>
-	<title>LinuxPulse - System Monitoring</title>
+	<title>Horizon - Linux System Monitoring</title>
 </svelte:head>
 
 <div class="space-y-6">

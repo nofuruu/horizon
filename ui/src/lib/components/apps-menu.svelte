@@ -13,7 +13,6 @@
 
 	const apps = [
 		{ label: "Dashboard", href: "/", icon: LayoutDashboardIcon },
-		{ label: "Analytics", href: "/analytics", icon: BarChart3Icon },
 		{ label: "Users", href: "/users", icon: UsersIcon },
 		{ label: "Content", href: "/content", icon: FileTextIcon },
 		{ label: "Roles", href: "/roles", icon: ShieldIcon },

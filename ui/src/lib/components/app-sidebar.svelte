@@ -59,32 +59,9 @@
 
 	const navigation: NavGroup[] = $derived([
 		{
-			label: "Overview",
+			label: "Monitoring",
 			items: [
 				{ title: "Dashboard", url: "/", icon: LayoutDashboardIcon },
-				{ title: "Analytics", url: "/analytics", icon: BarChart3Icon },
-			],
-		},
-		{
-			label: "Management",
-			items: [
-				{ title: "Users", url: "/users", icon: UsersIcon },
-				{ title: "Content", url: "/content", icon: FileTextIcon },
-				{ title: "Roles", url: "/roles", icon: ShieldIcon },
-			],
-		},
-		{
-			label: "System",
-			items: [
-				{
-					title: "Notifications",
-					url: "/notifications",
-					icon: BellIcon,
-					badge: notificationCount > 0 ? String(notificationCount) : undefined,
-				},
-				{ title: "Database", url: "/database", icon: DatabaseIcon },
-				{ title: "Settings", url: "/settings", icon: SettingsIcon },
-				// { title: "Documentation", url: "/docs", icon: BookOpenIcon },
 			],
 		},
 	]);
@@ -103,8 +80,8 @@
 								<ZapIcon class="size-4" />
 							</div>
 							<div class="flex flex-col gap-0.5 leading-none">
-								<span class="font-semibold">SvelteForge</span>
-								<span class="text-xs">Admin Dashboard</span>
+								<span class="font-semibold">Horizon</span>
+								<span class="text-xs">System Monitor</span>
 							</div>
 						</a>
 					{/snippet}

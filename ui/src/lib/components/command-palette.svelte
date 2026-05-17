@@ -47,12 +47,6 @@
 			keywords: ["home", "overview", "kpi"],
 		},
 		{
-			label: "Analytics",
-			href: "/analytics",
-			icon: BarChart3Icon,
-			keywords: ["charts", "stats", "reports"],
-		},
-		{
 			label: "Users",
 			href: "/users",
 			icon: UsersIcon,
