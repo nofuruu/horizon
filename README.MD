@@ -1,28 +1,21 @@
 # Horizon 
 
-Real-time Linux system monitoring dashboard dengan GO backend dan svelte
+Real-time Linux system monitoring dashboard with Go backend and Svelte
 
 ----
-| Section | |
+
+| Dashboard | CPU Usage |
 |---|---|
+| <img src="assets/dashboard.png" alt="Dashboard" width="45%" /> | <img src="assets/cpu_usage.png" alt="CPU Usage" width="45%" /> |
 
-![Dashboard](assets/dashboard.png) 
-
-![CPU Usage](assets/cpu_usage.png) 
-
-|
-
-![Process Termination](assets/terminate.png) 
-
-![System Info](assets/example.png) 
-
-|
-
+| Process Termination | System Info |
+|---|---|
+| <img src="assets/terminate.png" alt="Process Termination" width="45%" /> | <img src="assets/example.png" alt="System Info" width="45%" /> |
 
 ## Requirements 
 
  **Backend** 
-* Go 1.25 (karena menggunakan framework gin)
+* Go 1.25 (because it uses the Gin framework)
 * Gin Web Framework
 * gopsutil (system metrics)
 
