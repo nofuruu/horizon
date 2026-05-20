@@ -1,50 +1,11 @@
 <script lang="ts">
 	import LayoutDashboardIcon from "@lucide/svelte/icons/layout-dashboard";
-import ActivityIcon from "@lucide/svelte/icons/activity";
-	import UsersIcon from "@lucide/svelte/icons/users";
-	import SettingsIcon from "@lucide/svelte/icons/settings";
-	import BarChart3Icon from "@lucide/svelte/icons/bar-chart-3";
-	import FileTextIcon from "@lucide/svelte/icons/file-text";
-	import ShieldIcon from "@lucide/svelte/icons/shield";
-	import BellIcon from "@lucide/svelte/icons/bell";
-	import DatabaseIcon from "@lucide/svelte/icons/database";
-	import BookOpenIcon from "@lucide/svelte/icons/book-open";
-	import CrownIcon from "@lucide/svelte/icons/crown";
-	import ExternalLinkIcon from "@lucide/svelte/icons/external-link";
-	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
-	import LogOutIcon from "@lucide/svelte/icons/log-out";
-	import UserIcon from "@lucide/svelte/icons/user";
-	import BellRingIcon from "@lucide/svelte/icons/bell-ring";
-	import LockIcon from "@lucide/svelte/icons/lock";
+	import ActivityIcon from "@lucide/svelte/icons/activity";
 	import ZapIcon from "@lucide/svelte/icons/zap";
-	import KeyboardIcon from "@lucide/svelte/icons/keyboard";
-	import HelpCircleIcon from "@lucide/svelte/icons/help-circle";
+	import PowerIcon from "@lucide/svelte/icons/power";
 
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-	import * as Avatar from "$lib/components/ui/avatar/index.js";
-	import { Badge } from "$lib/components/ui/badge/index.js";
-
-	type Props = {
-		user: {
-			name: string;
-			email: string;
-			username: string;
-			role: string;
-		};
-		notificationCount?: number;
-	};
-
-	let { user, notificationCount = 0 }: Props = $props();
-
-	function getInitials(name: string) {
-		return name
-			.split(" ")
-			.map((n) => n[0])
-			.join("")
-			.toUpperCase()
-			.slice(0, 2);
-	}
+	import { Button } from "$lib/components/ui/button/index.js";
 
 	type NavItem = {
 		title: string;
@@ -58,7 +19,7 @@ import ActivityIcon from "@lucide/svelte/icons/activity";
 		items: NavItem[];
 	};
 
-	const navigation: NavGroup[] = $derived([
+	const navigation: NavGroup[] = [
 		{
 			label: "Monitoring",
 			items: [
@@ -66,7 +27,8 @@ import ActivityIcon from "@lucide/svelte/icons/activity";
 				{ title: "Processes", url: "/processes", icon: ActivityIcon },
 			],
 		},
-	]);
+	];
+
 </script>
 
 <Sidebar.Root>
@@ -118,106 +80,6 @@ import ActivityIcon from "@lucide/svelte/icons/activity";
 			</Sidebar.Group>
 		{/each}
 	</Sidebar.Content>
-
-	<Sidebar.Footer>
-		<Sidebar.Menu>
-			<Sidebar.MenuItem>
-				<DropdownMenu.Root>
-					<DropdownMenu.Trigger>
-						{#snippet child({ props })}
-							<Sidebar.MenuButton
-								size="lg"
-								class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-								{...props}
-							>
-								<Avatar.Root class="size-8 rounded-lg">
-									<Avatar.Fallback class="rounded-lg">{getInitials(user.name)}</Avatar.Fallback>
-								</Avatar.Root>
-								<div class="grid flex-1 text-left text-sm leading-tight">
-									<span class="truncate font-semibold">{user.name}</span>
-									<span class="text-muted-foreground truncate text-xs">{user.email}</span>
-								</div>
-								<ChevronDownIcon class="ml-auto size-4" />
-							</Sidebar.MenuButton>
-						{/snippet}
-					</DropdownMenu.Trigger>
-					<DropdownMenu.Content class="w-56" align="end" side="top">
-						<DropdownMenu.Label class="flex items-center gap-2">
-							My Account
-							<Badge variant="outline" class="text-xs capitalize">{user.role}</Badge>
-						</DropdownMenu.Label>
-						<DropdownMenu.Separator />
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/settings" {...props}>
-									<UserIcon class="mr-2 size-4" />
-									Profile
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/notifications" {...props}>
-									<BellRingIcon class="mr-2 size-4" />
-									Notifications
-									{#if notificationCount > 0}
-										<Badge variant="secondary" class="ml-auto h-5 px-1.5 text-[10px]"
-											>{notificationCount}</Badge
-										>
-									{/if}
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/settings" {...props}>
-									<SettingsIcon class="mr-2 size-4" />
-									Settings
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Separator />
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/lock" {...props}>
-									<LockIcon class="mr-2 size-4" />
-									Lock Screen
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/settings" {...props}>
-									<KeyboardIcon class="mr-2 size-4" />
-									Keyboard Shortcuts
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a href="/" {...props}>
-									<HelpCircleIcon class="mr-2 size-4" />
-									Help & Support
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-						<DropdownMenu.Separator />
-						<DropdownMenu.Item
-							variant="destructive"
-							onclick={() => {
-								const form = document.getElementById("logout-form");
-								if (form instanceof HTMLFormElement) form.requestSubmit();
-							}}
-						>
-							<LogOutIcon class="mr-2 size-4" />
-							Log out
-						</DropdownMenu.Item>
-					</DropdownMenu.Content>
-					<form id="logout-form" method="POST" action="/logout" class="hidden"></form>
-				</DropdownMenu.Root>
-			</Sidebar.MenuItem>
-		</Sidebar.Menu>
-	</Sidebar.Footer>
 
 	<Sidebar.Rail />
 </Sidebar.Root>
