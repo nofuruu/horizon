@@ -4,13 +4,28 @@ Real-time Linux system monitoring dashboard with Go backend and Svelte
 
 ----
 
-| Dashboard | CPU Usage |
-|---|---|
-| <img src="assets/dashboard.png" alt="Dashboard" width="100%" /> | <img src="assets/cpu_usage.png" alt="CPU Usage" width="100%" /> |
-
-| Process Termination | System Info |
-|---|---|
-| <img src="assets/terminate.png" alt="Process Termination" width="100%" /> | <img src="assets/example.png" alt="System Info" width="100%" /> |
+<table width="100%" cellpadding="8" cellspacing="0">
+  <tr>
+    <td align="center" width="50%">
+      <strong>Dashboard</strong><br />
+      <img src="assets/dashboard.png" alt="Dashboard" style="width:100%; max-width:560px;" />
+    </td>
+    <td align="center" width="50%">
+      <strong>CPU Usage</strong><br />
+      <img src="assets/cpu_usage.png" alt="CPU Usage" style="width:100%; max-width:560px;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <strong>Process Termination</strong><br />
+      <img src="assets/terminate.png" alt="Process Termination" style="width:100%; max-width:560px;" />
+    </td>
+    <td align="center" width="50%">
+      <strong>System Info</strong><br />
+      <img src="assets/example.png" alt="System Info" style="width:100%; max-width:560px;" />
+    </td>
+  </tr>
+</table>
 
 ## Requirements 
 
