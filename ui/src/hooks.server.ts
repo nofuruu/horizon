@@ -4,8 +4,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// No auth needed - set mock user for compatibility
 	event.locals.user = {
 		id: "system",
-		name: "System Admin",
-		email: "admin@Horizon.local",
+		name: "root user",
+		email: "root@localhost",
 		username: "admin",
 		role: "admin"
 	};
