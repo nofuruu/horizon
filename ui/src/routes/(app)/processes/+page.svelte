@@ -83,6 +83,7 @@
 	<div>
 		<h1 class="text-3xl font-bold tracking-tight">Processes</h1>
 		<p class="text-muted-foreground">Running processes on the system</p>
+		<p class="text-muted-foreground text-md text-red"> The kill features is still on work, you might not able to end any task in here, it will be fixed soon</p>
 	</div>
 
 	<Card.Root>
