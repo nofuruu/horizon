@@ -1,90 +1,111 @@
 # Horizon 
+
 Real-time Linux system monitoring dashboard dengan GO backend dan svelte
 
-
 ----
-## Requirements 
-
-**Backend**
-- Go 1.25 (karena menggunakan framework gin)
-- Gin Web Framework
-- gopsutil (system metrics)
-
-**UI/client**
-- sveltekit
-- TailwindCSS
-- LayerChart 
-- Shadcn-Svelte 
-
----
-## Get Started
-
-### 1. Backend Setup (Go)
-> Make sure Go 1.25+ is installed
-
-```bash
-cd api
-go mod init horizon
-go get -u github.com/gin-gonic/gin
-go get -u github.com/shirou/gopsutil/v3
-
-# Run the server
-go run main.go
-```
-API will be available at `http://localhost:8080`
-
-### 2. Frontend Setup (Svelte)
-
-```bash
-cd ui
-pnpm install 
-
-# Development mode
-pnpm run dev
-```
-Frontend will be available at `http://localhost:5173`
-
-## API Endpoints
-
-- `GET /health` - Health check
-- `GET /api/system` - System information
-- `GET /api/cpu` - CPU metrics
-- `GET /api/memory` - Memory metrics
-- `GET /api/disk` - Disk metrics
-- `GET /api/metrics` - All metrics (combined)
-
-## Development
-
-Run backend and frontend simultaneously:
-
-```bash
-# Terminal 1: Start the backend
-cd api && go run main.go
-
-# Terminal 2: Start the frontend
-cd ui && pnpm dev
-```
-
-Then open your browser at `http://localhost:5173`
-
-----
-
-## Features
-
-- Real-time CPU monitoring
-- Real-time Memory monitoring
-- Real-time Disk monitoring
-- System information display
-- Historical charts (40 seconds data)
-- Auto-refresh every 2 seconds
-- Dark mode support
----
-
-## Screenshots
-
 | Section | |
 |---|---|
-| **Dashboard** | ![Dashboard](assets/dashboard.png) |
-| **CPU Usage** | ![CPU Usage](assets/cpu_usage.png) |
-| **Process Management** | ![Process Termination](assets/terminate.png) |
-| **System Information** | ![System Info](assets/example.png) |
+
+![Dashboard](assets/dashboard.png) 
+
+![CPU Usage](assets/cpu_usage.png) 
+
+|
+
+![Process Termination](assets/terminate.png) 
+
+![System Info](assets/example.png) 
+
+|
+
+
+## Requirements 
+
+ **Backend** 
+* Go 1.25 (karena menggunakan framework gin)
+* Gin Web Framework
+* gopsutil (system metrics)
+
+ **UI/client** 
+* sveltekit
+* TailwindCSS
+* LayerChart 
+* Shadcn-Svelte 
+
+---
+
+## Get Started
+
+> this installation is newer version(if you find any bugs just report into email nfatihulx@gmail.com)
+
+1. **Install dependencies:** 
+
+```bash
+    ./install.sh
+```
+
+2. **Start the application:** 
+
+```bash
+   ./start.sh
+```
+
+3. **Open your browser:** 
+   - Dashboard: http://localhost:5173 (To see Interface)
+   - API: http://localhost:8080 (To see api endpoints)
+   - CTRL + C to stop both api and interface
+--- 
+
+### Troubleshooting 
+
+1. If you do not have Go installed and see **"command not found go"**, install Go using your Linux distribution package manager.
+
+   - Minimum required version: **Go 1.25**
+   - If your package manager installs a newer version automatically, do not add extra version flags.
+
+   Examples:
+
+   1. Fedora / RHEL / CentOS:
+
+```bash
+sudo dnf install go
+```
+
+   2. Arch Linux / CachyOS / Manjaro:
+
+```bash
+sudo pacman -S go
+```
+
+   3. Debian / Ubuntu / Linux Mint:
+
+```bash
+sudo apt update
+sudo apt install golang-go
+```
+
+   4. openSUSE:
+
+```bash
+sudo zypper install go
+```
+
+   5. Generic Debian-based or Ubuntu-based systems:
+
+```bash
+sudo apt install golang-go
+```
+
+   After installation, verify the version:
+
+```bash
+go version
+```
+
+   Make sure the output shows **Go 1.25** or newer.
+
+
+   **"command not found: pnpm"**
+   ```bash
+   npm install -g pnpm
+   ```
