@@ -114,6 +114,25 @@ go version
 
 
    **"command not found: pnpm"**
+   > If you need to install npm with sudo, use the appropriate command for your distro:
+
+   **Ubuntu/Debian-based systems:**
+   ```bash
+   sudo apt update
+   sudo apt install npm
+   ```
+
+   **Fedora/RHEL-based systems:**
+   ```bash
+   sudo dnf install npm
+   ```
+
+   **Arch Linux:**
+   ```bash
+   sudo pacman -S npm
+   ```
+
+   After installing npm, install pnpm globally:
    ```bash
    npm install -g pnpm
    ```
